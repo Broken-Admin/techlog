@@ -15,16 +15,16 @@ let outputFile = fs.openSync("catalog.html", "w");
 // Set up the main file
 fs.writeSync(outputFile, "<head>");
 fs.writeSync(outputFile, "<title>techlog</title>\n");
-fs.writeSync(outputFile, "<link rel=\"stylesheet\" href=\"/techlog/assets/css/style.css\">")
+fs.writeSync(outputFile, "<link rel=\"stylesheet\" href=\"/techlog/assets/css/style.css\">\n")
 // Viewport
-fs.writeSync(outputFile, "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-fs.writeSync(outputFile, "</head><body>");
+fs.writeSync(outputFile, "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+fs.writeSync(outputFile, "</head>\n<body>");
 
 // Write the main page header
 fs.writeSync(outputFile, "<section class=\"page-header\">\n");
 fs.writeSync(outputFile, "<h1 class=\"project-name\">techlog catalog</h1>\n");
 cDate = new Date();
-fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth()}/${cDate.getDay()}/${cDate.getFullYear()}<!--(MM.DD.YYYY)-->.</h2>\n`);
+fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth()}/${cDate.getDay()}/${cDate.getFullYear()}<!--(MM.DD.YYYY)--> at ${cDate.getHours()}:${cDate.getMinutes()}:${cDate.getSeconds()}<!--(HH:MM:SS)-->.</h2>\n`);
 fs.writeSync(outputFile, "</section>\n");
 
 fs.writeSync(outputFile, "<section class=\"main-content\">\n");
