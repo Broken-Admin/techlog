@@ -17,7 +17,8 @@ fs.writeSync(outputFile, "<head>");
 fs.writeSync(outputFile, "<title>techlog</title>\n");
 // Viewport to make site responsive
 fs.writeSync(outputFile, "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
-fs.writeSync(outputFile, "<link rel=\"stylesheet\" href=\"/techlog/assets/css/style.css\">\n")
+fs.writeSync(outputFile, "<link rel=\"stylesheet\" href=\"/techlog/assets/css/style.css\">\n");
+fs.writeSync(outputFile, "<link rel=\"stylesheet\" href=\"/techlog/style/custom.css\">\n");
 fs.writeSync(outputFile, "</head>\n<body>");
 
 // Write the main page header
