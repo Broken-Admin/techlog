@@ -38,8 +38,8 @@ for (let i = 0; i < contentFiles.length; i++) {
     let modifiedDate = new Date(cStats.mtimeMs);
     // Write a link to the page
     fs.writeSync(outputFile, `\t<p>${link[0]}${cFile}${link[1]}${cFile.split('.')[0]}${link[2]} | `);
-    fs.writeSync(outputFile, `File created ${birthDate.getDay().toString().padStart(2, '0')}/${birthDate.getMonth().toString().padStart(2, '0')}/${birthDate.getFullYear()}<!--(DD.MM.YYYY)-->, `);
-    fs.writeSync(outputFile, `last modified ${modifiedDate.getDay().toString().padStart(2, '0')}/${modifiedDate.getMonth().toString().padStart(2, '0')}/${modifiedDate.getFullYear()}<!--(DD.MM.YYYY)-->.`)
+    fs.writeSync(outputFile, `File created ${birthDate.getDate().toString().padStart(2, '0')}/${birthDate.getMonth().toString().padStart(2, '0')}/${birthDate.getFullYear()}<!--(DD.MM.YYYY)-->, `);
+    fs.writeSync(outputFile, `last modified ${modifiedDate.getDate().toString().padStart(2, '0')}/${modifiedDate.getMonth().toString().padStart(2, '0')}/${modifiedDate.getFullYear()}<!--(DD.MM.YYYY)-->.`)
     fs.writeSync(outputFile, "</p>\n");
 }
 
