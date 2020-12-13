@@ -32,17 +32,17 @@ fs.writeSync(outputFile, "<section class=\"main-content\">\n");
 for (let i = 0; i < contentFiles.length; i++) {
     let cFile = contentFiles[i];
     // Write a link to the page
-    fs.writeSync(outputFile, "<p>" + link[0] + cFile + link[1] + cFile.split('.')[0] + link[2] + '\n' + "</p>");
+    fs.writeSync(outputFile, "\t<p>" + link[0] + cFile + link[1] + cFile.split('.')[0] + link[2] + "</p>\n");
 }
 
 if(contentFiles.length <= 0) {
-    fs.writeSync(outputFile, "<p>It seems that no articles have been written yet, please check later.</p>");
+    fs.writeSync(outputFile, "<p>It seems that no articles have been written yet, please check later.</p>\n");
 }
 
 // Footer
-fs.writeSync(outputFile, "<footer class=\"site-footer\">\n<span class=\"site-footer-owner\"><a href=\"https://github.com/Broken-Admin/techlog\">techlog</a> is maintained by <a href=\"https://github.com/Broken-Admin\">Broken-Admin</a>.</span>\n</footer>")
+fs.writeSync(outputFile, "<footer class=\"site-footer\">\n<span class=\"site-footer-owner\"><a href=\"https://github.com/Broken-Admin/techlog\">techlog</a> is maintained by <a href=\"https://github.com/Broken-Admin\">Broken-Admin</a>.</span>\n</footer>\n")
 // End the main content section
-fs.writeSync(outputFile, "</section>");
+fs.writeSync(outputFile, "</section>\n");
 // End the body
 fs.writeSync(outputFile, "</body>");
 
