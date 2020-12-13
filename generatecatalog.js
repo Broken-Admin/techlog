@@ -25,14 +25,20 @@ fs.writeSync(outputFile, "</head>\n<body>");
 fs.writeSync(outputFile, "<section class=\"page-header\">\n");
 fs.writeSync(outputFile, "<h1 class=\"project-name\">techlog catalog</h1>\n");
 cDate = new Date();
-fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth().toString().padStart(2, '0')}/${cDate.getDay().toString().padStart(2, '0')}/${cDate.getFullYear()}<!--(MM.DD.YYYY)--> at ${cDate.getHours().toString().padStart(2, '0')}:${cDate.getMinutes().toString().padStart(2, '0')}:${cDate.getSeconds().toString().padStart(2, '0')}<!--(HH:MM:SS)-->.</h2>\n`);
+fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getDay().toString().padStart(2, '0')}/${cDate.getMonth().toString().padStart(2, '0')}/${cDate.getFullYear()}<!--(DD.MM.YYYY)-->.</h2>\n`);
 fs.writeSync(outputFile, "</section>\n");
 
 fs.writeSync(outputFile, "<section class=\"main-content\">\n");
 for (let i = 0; i < contentFiles.length; i++) {
     let cFile = contentFiles[i];
+    let cStats = fs.statSync(`subpages/${cFile}`);
+    let birthDate = new Date(cStats.birthtime)
+    let modifiedDate = new Date(cStats.mtime);
     // Write a link to the page
-    fs.writeSync(outputFile, "\t<p>" + link[0] + cFile + link[1] + cFile.split('.')[0] + link[2] + "</p>\n");
+    fs.writeSync(outputFile, `\t<p>${link[0]}${cFile}${link[1]}${cFile.split('.')[0]}${link[2]} | `);
+    fs.writeSync(outputFile, `File created ${birthDate.getDay().toString().padStart(2, '0')}/${birthDate.getMonth().toString().padStart(2, '0')}/${birthDate.getFullYear()}<!--(DD.MM.YYYY)-->, `);
+    fs.writeSync(outputFile, `last modified ${modifiedDate.getDay().toString().padStart(2, '0')}/${modifiedDate.getMonth().toString().padStart(2, '0')}/${modifiedDate.getFullYear()}<!--(DD.MM.YYYY)-->.`)
+    fs.writeSync(outputFile, "</p>\n");
 }
 
 if(contentFiles.length <= 0) {
