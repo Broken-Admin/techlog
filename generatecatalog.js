@@ -16,6 +16,7 @@ let outputFile = fs.openSync("catalog.html", "w");
 fs.writeSync(outputFile, "<head>");
 fs.writeSync(outputFile, "<title>techlog</title>\n");
 fs.writeSync(outputFile, "<link rel=\"stylesheet\" href=\"/techlog/assets/css/style.css\">")
+// Viewport
 fs.writeSync(outputFile, "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 fs.writeSync(outputFile, "</head><body>");
 
