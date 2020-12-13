@@ -25,7 +25,7 @@ fs.writeSync(outputFile, "</head>\n<body>");
 fs.writeSync(outputFile, "<section class=\"page-header\">\n");
 fs.writeSync(outputFile, "<h1 class=\"project-name\">techlog catalog</h1>\n");
 cDate = new Date();
-fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth()}/${cDate.getDay()}/${cDate.getFullYear()}<!--(MM.DD.YYYY)--> at ${cDate.getHours()}:${cDate.getMinutes()}:${cDate.getSeconds()}<!--(HH:MM:SS)-->.</h2>\n`);
+fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth().toString().padStart(2, '0')}/${cDate.getDay().toString().padStart(2, '0')}/${cDate.getFullYear()}<!--(MM.DD.YYYY)--> at ${cDate.getHours().toString().padStart(2, '0')}:${cDate.getMinutes().toString().padStart(2, '0')}:${cDate.getSeconds().toString().padStart(2, '0')}<!--(HH:MM:SS)-->.</h2>\n`);
 fs.writeSync(outputFile, "</section>\n");
 
 fs.writeSync(outputFile, "<section class=\"main-content\">\n");
