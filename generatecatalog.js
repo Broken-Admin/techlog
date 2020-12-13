@@ -22,10 +22,10 @@ fs.writeSync(outputFile, "</head><body>");
 fs.writeSync(outputFile, "<section class=\"page-header\">\n");
 fs.writeSync(outputFile, "<h1 class=\"project-name\">techlog catalog</h1>\n");
 cDate = new Date();
-fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth()}/${cDate.getDay()}/${cDate.getFullYear()}<!--(MM.DD.YYYY)-->.</h2>`);
-fs.writeSync(outputFile, "</section>");
+fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the articles I've written up to this point, last updated ${cDate.getMonth()}/${cDate.getDay()}/${cDate.getFullYear()}<!--(MM.DD.YYYY)-->.</h2>\n`);
+fs.writeSync(outputFile, "</section>\n");
 
-fs.writeSync(outputFile, "<section class=\"main-content\">");
+fs.writeSync(outputFile, "<section class=\"main-content\">\n");
 for (let i = 0; i < contentFiles.length; i++) {
     let cFile = contentFiles[i];
     // Write a link to the page
