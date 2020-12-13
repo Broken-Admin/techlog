@@ -1,5 +1,8 @@
 body {
-    background-color: #c2c2c2;
-    background: linear-gradient(180deg, #c2c2c2, #bababa) !important;
+    background-color: #e9e9e9;
+    background: linear-gradient(180deg, #e9e9e9, #dfdfdf) !important;
     color: #819199 !important;
+}
+code {
+    background-color: #e9e9e9;
 }
