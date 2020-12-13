@@ -32,8 +32,10 @@ fs.writeSync(outputFile, "<section class=\"main-content\">\n");
 for (let i = 0; i < contentFiles.length; i++) {
     let cFile = contentFiles[i];
     let cStats = fs.statSync(`subpages/${cFile}`);
-    let birthDate = new Date(cStats.birthtime)
-    let modifiedDate = new Date(cStats.mtime);
+    // The date constructor needs Ms
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
+    let birthDate = new Date(cStats.birthtimeMs)
+    let modifiedDate = new Date(cStats.mtimeMs);
     // Write a link to the page
     fs.writeSync(outputFile, `\t<p>${link[0]}${cFile}${link[1]}${cFile.split('.')[0]}${link[2]} | `);
     fs.writeSync(outputFile, `File created ${birthDate.getDay().toString().padStart(2, '0')}/${birthDate.getMonth().toString().padStart(2, '0')}/${birthDate.getFullYear()}<!--(DD.MM.YYYY)-->, `);
