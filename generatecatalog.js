@@ -7,13 +7,13 @@ var contentFiles = [];
 for (let i = 0; i < subdirectoryFiles.length; i++) {
     let cFile = subdirectoryFiles[i];
     let cStats = fs.statSync(`subpages/${cFile}`);
-    if (cFile.match(/.+\.html/g)) contentFiles.push({filename: cFile, birthTimeMs: cStats.birthtimeMs});
+    if (cFile.match(/.+\.html/g)) contentFiles.push({filename: cFile, birthtimeMs: cStats.birthtimeMs});
     else console.log(`File \"${cFile}\" in the subdirectory is not a HTML file.`);
 }
 
 // Sort the files by their creation timestamp, ascending in date
 contentFiles.sort((a, b) => {
-    return(a.birthTimeMs - b.birthTimeMs);
+    return(a.birthtimeMs - b.birthtimeMs);
 });
 
 // Simplify the file objects to just filenames
@@ -48,7 +48,7 @@ for (let i = 0; i < contentFiles.length; i++) {
     let cStats = fs.statSync(`subpages/${cFile}`);
     // The date constructor needs Ms
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
-    let birthDate = new Date(cStats.birthTimeMs)
+    let birthDate = new Date(cStats.birthtimeMs)
     let modifiedDate = new Date(cStats.mtimeMs);
     // Write a link to the page
     fs.writeSync(outputFile, `\t<p>${link[0]}${cFile}${link[1]}${cFile.split('.')[0]}${link[2]} | `);
