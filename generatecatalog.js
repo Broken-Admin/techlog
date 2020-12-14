@@ -6,13 +6,26 @@ var contentFiles = [];
 
 for (let i = 0; i < subdirectoryFiles.length; i++) {
     let cFile = subdirectoryFiles[i];
-    if (cFile.match(/.+\.html/g)) contentFiles.push(cFile);
+    let cStats = fs.statSync(`subpages/${cFile}`);
+    if (cFile.match(/.+\.html/g)) contentFiles.push({filename: cFile, birthTimeMs: cStats.birthtimeMs});
     else console.log(`File \"${cFile}\" in the subdirectory is not a HTML file.`);
+}
+
+// Sort the files by their creation timestamp, ascending in date
+contentFiles.sort((a, b) => {
+    return(a.birthTimeMs - b.birthTimeMs);
+});
+
+// Simplify the file objects to just filenames
+for(let i = 0; i < contentFiles.length; i++) {
+    let cFileObject = contentFiles[i];
+    contentFiles[i] = cFileObject.filename;
 }
 
 let outputFile = fs.openSync("catalog.html", "w");
 
 // Set up the main file
+
 fs.writeSync(outputFile, "<head>");
 fs.writeSync(outputFile, "<title>techlog: catalog</title>\n");
 // Viewport to make site responsive
@@ -29,12 +42,13 @@ fs.writeSync(outputFile, `<h2 class=\"project-tagline\">The catalog of the artic
 fs.writeSync(outputFile, "</section>\n");
 
 fs.writeSync(outputFile, "<section class=\"main-content\">\n");
+// Link are written to the catalog in ascending of creation date and time.
 for (let i = 0; i < contentFiles.length; i++) {
     let cFile = contentFiles[i];
     let cStats = fs.statSync(`subpages/${cFile}`);
     // The date constructor needs Ms
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
-    let birthDate = new Date(cStats.birthtimeMs)
+    let birthDate = new Date(cStats.birthTimeMs)
     let modifiedDate = new Date(cStats.mtimeMs);
     // Write a link to the page
     fs.writeSync(outputFile, `\t<p>${link[0]}${cFile}${link[1]}${cFile.split('.')[0]}${link[2]} | `);
