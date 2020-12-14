@@ -8,6 +8,7 @@ code {
 }
 div.center-button {
     padding-top: 1em;
+    padding-bottom: 1em;
     text-align: center;
 }
 .page-button {
