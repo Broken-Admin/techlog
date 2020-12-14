@@ -64,7 +64,7 @@ if(contentFiles.length <= 0) {
 }
 
 // Footer
-fs.writeSync(outputFile, "<a href=\"#\" class=\"btn\">Go to Top</a>");
+fs.writeSync(outputFile, "<a href=\"#\" class=\"btn page-button\">Go to Top</a>");
 fs.writeSync(outputFile, "<footer class=\"site-footer\">\n<span class=\"site-footer-owner\"><a href=\"https://github.com/Broken-Admin/techlog\">techlog</a> is maintained by <a href=\"https://github.com/Broken-Admin\">Broken-Admin</a>.</span>\n</footer>\n")
 // End the main content section
 fs.writeSync(outputFile, "</section>\n");
