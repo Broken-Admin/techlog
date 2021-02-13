@@ -11,6 +11,9 @@ div.center-button {
     padding-bottom: 1em;
     text-align: center;
 }
+p.small-text {
+    font-size: 80%;
+}
 .page-button {
     width: 7em;
     height: 3em;
