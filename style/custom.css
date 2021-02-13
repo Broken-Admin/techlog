@@ -14,6 +14,9 @@ div.center-button {
 p.small-text {
     font-size: 80%;
 }
+p.readable {
+    font-family: "Times New Roman", Times, serif;
+}
 ul.no-dot {
     list-style-type: none;
 }
