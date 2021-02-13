@@ -15,6 +15,7 @@ p.small-text {
     font-size: 80%;
 }
 .readable {
+    font-size: 12px;
     font-family: "Times New Roman", Times, serif;
 }
 ul.no-dot {
