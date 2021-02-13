@@ -14,7 +14,7 @@ div.center-button {
 p.small-text {
     font-size: 80%;
 }
-p.readable {
+.readable {
     font-family: "Times New Roman", Times, serif;
 }
 ul.no-dot {
