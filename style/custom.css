@@ -11,6 +11,9 @@ div.center-button {
     padding-bottom: 1em;
     text-align: center;
 }
+p {
+    margin: 5%;
+}
 p.small-text {
     font-size: 80%;
 }
