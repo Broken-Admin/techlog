@@ -18,10 +18,10 @@ p.small-text {
     font-size: 16px;
     font-family: "Times New Roman", Times, serif;
 }
-ul.no-dot {
+.no-dot {
     list-style-type: none;
 }
-ul.no-indent {
+.no-indent {
     padding: 0;
     margin: 0;
 }
